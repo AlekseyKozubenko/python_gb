@@ -12,15 +12,38 @@
 
 my_list = [7, 5, 3, 3, 2]
 
-new_el = 0
-while True:
-    try:
-        new_el = input("Введите натуральное целое число(для выхода - q): ")
-        if new_el == "q":
+try:
+    new_el = int(input("Введите натуральное целое число: "))
+except ValueError:
+    print("Введите число!")
+if new_el <= my_list[-1]:
+    my_list.append(new_el)
+    print("Новый рейтинг вставлен в конец списка.")
+    print(f"Итог: {my_list}")
+else:
+    i = 0
+    for element in my_list:
+        if new_el > element:
+            my_list.insert(my_list.index(element), new_el)
+            # print(my_list)
+            print(f"Новый рейтинг вставлен в список с индексом {i}.")
+            print(f"Итог: {my_list}")
             break
-        my_list.append(int(new_el))
-    except ValueError:
-        print("Введите число!")
-    my_list.sort()
-    my_list.reverse()
-print(my_list)
+        i += 1
+
+
+"""
+Не верное решение
+"""
+# new_el = 0
+# while True:
+#     try:
+#         new_el = input("Введите натуральное целое число(для выхода - q): ")
+#         if new_el == "q":
+#             break
+#         my_list.append(int(new_el))
+#     except ValueError:
+#         print("Введите число!")
+#     my_list.sort()
+#     my_list.reverse()
+# print(my_list)
