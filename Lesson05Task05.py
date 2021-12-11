@@ -14,3 +14,4 @@ sum_obj = open("sum.txt")
 sum = sum_obj.read().split()
 
 print(f"Сумма чисел в файле: {reduce((lambda x, y: int(x) + int(y)),sum)}")
+sum_obj.close()
